@@ -3,11 +3,13 @@ import Head from 'next/Head';
 
 export default function Home() {
   return (
-    <h1 className={styles.title}>
+    <>
       <Head>
         <title>Início | ig.news</title>
       </Head>
-      Hello World
-    </h1>
+      <h1 className={styles.title}>
+        Hello World
+      </h1>
+    </>
   )
 }
