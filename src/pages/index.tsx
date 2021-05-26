@@ -5,6 +5,12 @@ import { stripe } from '../services/stripe';
 
 import styles from './home.module.scss';
 
+// Client-side - ação do usuário (ex: clique do botão), info que não precisa já estar ali quando a pg é carregada
+// ---> Ex. Client-side: comentários de um blog
+// Server-side - precisa tbm de indexação, mas precisam mudar de forma dinâmica (autenticação de usuário, etc)
+// Static site generation - pra casos em que não há problema gerar 
+// --- html 'estático' pra todo usuário que acessa e que precisam de indexação no google
+
 interface HomeProps {
   product: {
     priceId: string;
@@ -51,6 +57,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       product,
     },
-    revalidate: 60 * 60 * 24, // 24 horas
+    revalidate: 60 * 60 * 24, // 24 horas - SSG é mais performático - já SSR é mais dinâmico
   }
 }
